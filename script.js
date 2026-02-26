@@ -102,6 +102,21 @@ const i18n = {
         'footer.tagline': 'Where Code Meets Creativity.',
         'footer.copy': 'All systems operational.',
         'footer.credit': 'Designed & Built by Mohamed',
+
+        // Testimonials
+        'testimonials.title': 'What Clients<br><span class="text-neon-green">Say About Me</span>',
+        'testimonials.t1_text': '"Opliz transformed our digital presence completely. The website he built for Kanana Roofing Sheet is professional, fast, and bilingual — exactly what we needed to reach both Arabic and English-speaking clients."',
+        'testimonials.t1_name': 'Kanana Roofing Sheet',
+        'testimonials.t1_role': 'Industrial Manufacturing',
+        'testimonials.t2_text': '"His product photography skills are outstanding. Every shot tells a story and makes our products look premium. Highly recommend for anyone needing professional visual content."',
+        'testimonials.t2_name': 'Ahmed Hassan',
+        'testimonials.t2_role': 'Business Owner',
+        'testimonials.t3_text': '"Mohamed doesn\'t just write code — he truly understands business needs. His digital strategy and social media management helped us grow our online engagement significantly."',
+        'testimonials.t3_name': 'Sara Mohamed',
+        'testimonials.t3_role': 'Marketing Manager',
+
+        // WhatsApp
+        'whatsapp.tooltip': 'Chat with me!',
     },
 
     ar: {
@@ -201,6 +216,21 @@ const i18n = {
         'footer.tagline': 'حيث يلتقي الكود بالإبداع.',
         'footer.copy': 'جميع الأنظمة تعمل.',
         'footer.credit': 'تصميم وبناء بواسطة محمد',
+
+        // Testimonials
+        'testimonials.title': 'ماذا يقول<br><span class="text-neon-green">العملاء عنّي</span>',
+        'testimonials.t1_text': '"أوبليز غيّر حضورنا الرقمي بالكامل. الموقع اللي بناه لكنانه روفنك شيت احترافي وسريع وثنائي اللغة — بالظبط اللي كنا محتاجينه."',
+        'testimonials.t1_name': 'كنانه روفنك شيت',
+        'testimonials.t1_role': 'تصنيع صناعي',
+        'testimonials.t2_text': '"مهاراته في تصوير المنتجات مذهلة. كل صورة بتحكي قصة وبتخلي المنتجات تبان فخمة. أنصح بيه جداً لأي حد محتاج محتوى بصري احترافي."',
+        'testimonials.t2_name': 'أحمد حسن',
+        'testimonials.t2_role': 'صاحب عمل',
+        'testimonials.t3_text': '"محمد مش بس بيكتب كود — هو فاهم احتياجات البيزنس فعلاً. استراتيجيته الرقمية وإدارته للسوشيال ميديا ساعدتنا نكبر تفاعلنا بشكل ملحوظ."',
+        'testimonials.t3_name': 'سارة محمد',
+        'testimonials.t3_role': 'مدير تسويق',
+
+        // WhatsApp
+        'whatsapp.tooltip': 'تواصل معي!',
     }
 };
 
@@ -228,7 +258,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // ─── Theme Toggle ───
     themeBtn.addEventListener('click', () => {
         currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+        document.body.classList.add('theme-transitioning');
         setTheme(currentTheme, true);
+        setTimeout(() => document.body.classList.remove('theme-transitioning'), 600);
     });
 
     function setTheme(theme, save) {
@@ -402,5 +434,129 @@ document.addEventListener('DOMContentLoaded', () => {
             particleContainer.appendChild(p);
         }
     }
+
+
+    // ─── Preloader ───
+    const preloader = document.getElementById('preloader');
+    const preloaderFill = document.getElementById('preloader-fill');
+    if (preloader && preloaderFill) {
+        let progress = 0;
+        const preloaderInterval = setInterval(() => {
+            progress += Math.random() * 25 + 10;
+            if (progress >= 100) progress = 100;
+            preloaderFill.style.width = progress + '%';
+            if (progress >= 100) {
+                clearInterval(preloaderInterval);
+                setTimeout(() => {
+                    preloader.classList.add('is-hidden');
+                    document.body.classList.remove('no-scroll');
+                }, 400);
+            }
+        }, 200);
+        document.body.classList.add('no-scroll');
+    }
+
+
+    // ─── Scroll Progress Bar ───
+    const scrollProgress = document.getElementById('scroll-progress');
+    function updateScrollProgress() {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const percent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        if (scrollProgress) scrollProgress.style.width = percent + '%';
+    }
+    window.addEventListener('scroll', updateScrollProgress);
+
+
+    // ─── Back to Top Button ───
+    const backToTop = document.getElementById('back-to-top');
+    if (backToTop) {
+        window.addEventListener('scroll', () => {
+            backToTop.classList.toggle('is-visible', window.scrollY > 500);
+        });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+
+    // ─── WhatsApp Float Visibility ───
+    const whatsappFloat = document.getElementById('whatsapp-float');
+    if (whatsappFloat) {
+        setTimeout(() => {
+            whatsappFloat.classList.add('is-visible');
+        }, 2500);
+    }
+
+
+    // ─── Custom Cursor ───
+    const cursorDot = document.getElementById('cursor-dot');
+    const cursorRing = document.getElementById('cursor-ring');
+    if (cursorDot && cursorRing && window.matchMedia('(hover: hover)').matches) {
+        let mouseX = 0, mouseY = 0;
+        let ringX = 0, ringY = 0;
+
+        document.addEventListener('mousemove', e => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursorDot.style.left = mouseX + 'px';
+            cursorDot.style.top = mouseY + 'px';
+        });
+
+        function animateRing() {
+            ringX += (mouseX - ringX) * 0.15;
+            ringY += (mouseY - ringY) * 0.15;
+            cursorRing.style.left = ringX + 'px';
+            cursorRing.style.top = ringY + 'px';
+            requestAnimationFrame(animateRing);
+        }
+        animateRing();
+
+        const hoverTargets = document.querySelectorAll('a, button, .project-card, .service-card, .testimonial-card, .tech-item');
+        hoverTargets.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursorDot.classList.add('is-hover');
+                cursorRing.classList.add('is-hover');
+            });
+            el.addEventListener('mouseleave', () => {
+                cursorDot.classList.remove('is-hover');
+                cursorRing.classList.remove('is-hover');
+            });
+        });
+
+        document.body.style.cursor = 'none';
+        document.querySelectorAll('a, button').forEach(el => el.style.cursor = 'none');
+    }
+
+
+    // ─── Easter Egg (Konami Code) ───
+    const konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+    let konamiIndex = 0;
+
+    // Create Easter Egg overlay
+    const easterOverlay = document.createElement('div');
+    easterOverlay.className = 'easter-egg-overlay';
+    easterOverlay.innerHTML = `
+        <div class="easter-egg-text">🚀 YOU FOUND THE SECRET!</div>
+        <div class="easter-egg-sub">Konami Code Activated — Keep Building Amazing Things</div>
+    `;
+    document.body.appendChild(easterOverlay);
+
+    easterOverlay.addEventListener('click', () => {
+        easterOverlay.classList.remove('is-active');
+    });
+
+    document.addEventListener('keydown', e => {
+        if (e.keyCode === konamiCode[konamiIndex]) {
+            konamiIndex++;
+            if (konamiIndex === konamiCode.length) {
+                easterOverlay.classList.add('is-active');
+                konamiIndex = 0;
+            }
+        } else {
+            konamiIndex = 0;
+        }
+    });
+
 
 });

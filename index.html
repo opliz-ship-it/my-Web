@@ -10,6 +10,10 @@
     <meta property="og:title" content="Opliz — Where Code Meets Creativity">
     <meta property="og:description" content="Back-End Developer · Product Photographer · Digital Strategist">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/og-image.png">
+    <meta property="og:url" content="https://opliz.dev">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="assets/og-image.png">
     <title>Opliz — Where Code Meets Creativity</title>
 
     <!-- Fonts (including Arabic-friendly Noto Kufi) -->
@@ -24,6 +28,24 @@
 </head>
 
 <body>
+
+    <!-- ═══════════ PRELOADER ═══════════ -->
+    <div class="preloader" id="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-glyph">&lt;/&gt;</div>
+            <div class="preloader-text">OPLIZ</div>
+            <div class="preloader-bar">
+                <div class="preloader-fill" id="preloader-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════ CUSTOM CURSOR ═══════════ -->
+    <div class="custom-cursor" id="cursor-dot"></div>
+    <div class="custom-cursor-ring" id="cursor-ring"></div>
+
+    <!-- ═══════════ SCROLL PROGRESS BAR ═══════════ -->
+    <div class="scroll-progress" id="scroll-progress"></div>
 
     <!-- ═══════════ NAVIGATION ═══════════ -->
     <nav class="navbar" id="navbar">
@@ -587,6 +609,62 @@
         </div>
     </section>
 
+    <!-- ═══════════ TESTIMONIALS SECTION ═══════════ -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">// TESTIMONIALS</span>
+                <h2 class="section-title" data-i18n="testimonials.title">What Clients<br><span
+                        class="text-neon-green">Say About Me</span></h2>
+            </div>
+
+            <div class="testimonials-track" id="testimonials-track">
+                <div class="testimonial-card animate-on-scroll">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text" data-i18n="testimonials.t1_text">"Opliz transformed our digital presence
+                        completely. The website he built for Kanana Roofing Sheet is professional, fast, and bilingual —
+                        exactly what we needed to reach both Arabic and English-speaking clients."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">K</div>
+                        <div class="testimonial-info">
+                            <span class="testimonial-name" data-i18n="testimonials.t1_name">Kanana Roofing Sheet</span>
+                            <span class="testimonial-role" data-i18n="testimonials.t1_role">Industrial
+                                Manufacturing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card animate-on-scroll">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text" data-i18n="testimonials.t2_text">"His product photography skills are
+                        outstanding. Every shot tells a story and makes our products look premium. Highly recommend for
+                        anyone needing professional visual content."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">A</div>
+                        <div class="testimonial-info">
+                            <span class="testimonial-name" data-i18n="testimonials.t2_name">Ahmed Hassan</span>
+                            <span class="testimonial-role" data-i18n="testimonials.t2_role">Business Owner</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card animate-on-scroll">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text" data-i18n="testimonials.t3_text">"Mohamed doesn't just write code — he
+                        truly understands business needs. His digital strategy and social media management helped us
+                        grow our online engagement significantly."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">S</div>
+                        <div class="testimonial-info">
+                            <span class="testimonial-name" data-i18n="testimonials.t3_name">Sara Mohamed</span>
+                            <span class="testimonial-role" data-i18n="testimonials.t3_role">Marketing Manager</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ═══════════ CONTACT / CTA SECTION ═══════════ -->
     <section class="contact" id="contact">
         <div class="container">
@@ -674,6 +752,23 @@
             </div>
         </div>
     </footer>
+
+    <!-- ═══════════ FLOATING WHATSAPP BUTTON ═══════════ -->
+    <a href="https://wa.me/201103688355" target="_blank" rel="noopener noreferrer" class="whatsapp-float"
+        id="whatsapp-float" aria-label="Chat on WhatsApp">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+            <path
+                d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+        <span class="whatsapp-tooltip" data-i18n="whatsapp.tooltip">Chat with me!</span>
+    </a>
+
+    <!-- ═══════════ BACK TO TOP BUTTON ═══════════ -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15" />
+        </svg>
+    </button>
 
     <script src="script.js"></script>
 </body>
