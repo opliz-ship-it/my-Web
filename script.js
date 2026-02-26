@@ -62,7 +62,7 @@ const i18n = {
 
         // Portfolio
         'portfolio.title': 'Projects That<br><span class="text-neon">Prove The Point</span>',
-        'portfolio.p1_status': 'Live Project',
+        'portfolio.p1_status': 'Completed ✅',
         'portfolio.p1_tag1': 'Web Dev',
         'portfolio.p1_tag2': 'Digital Presence',
         'portfolio.p1_tag3': 'Industrial',
@@ -161,7 +161,7 @@ const i18n = {
 
         // Portfolio
         'portfolio.title': 'مشاريع<br><span class="text-neon">تثبت الفكرة</span>',
-        'portfolio.p1_status': 'مشروع حي',
+        'portfolio.p1_status': 'مكتمل ✅',
         'portfolio.p1_tag1': 'تطوير ويب',
         'portfolio.p1_tag2': 'حضور رقمي',
         'portfolio.p1_tag3': 'صناعي',
